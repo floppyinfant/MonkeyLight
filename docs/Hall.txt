@@ -1,0 +1,14 @@
+  // @totman
+  // Set up timer based on HALL-Sensor
+  long timeStart = millis(); // set speed by HALL-Sensor
+  // TODO: predict next cycles speed by extrapolation; implement: array/ buffer of speed
+  while(digitalRead(TRIGGER) == HIGH);   // Wait for trigger button
+  float timePerCycle = (float) (millis() - timeStart) / 1000.0;  // [seconds]
+  //uint32_t linesPerSec = (uint32_t) ((float) nBlocks / timePerCycle);
+  uint32_t linesPerSec = (nBlocks / timePerCycle);
+  Serial.print(F("timePerCycle: "));
+  Serial.println(timePerCycle);
+  Serial.print(F("linesPerSec : "));
+  Serial.println(linesPerSec);
+  // end @totman
+  OCR1A = (F_CPU / 64) / linesPerSec;          // Timer1 interval

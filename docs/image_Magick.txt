@@ -1,0 +1,14 @@
+////////////////////////////////////////////////////////////
+// IMAGEMAGICK
+// http://www.imagemagick.org/Usage/distorts/#polar_tricks
+//
+// convert (Cartesian to Polar)
+// only the small sides radius
+// convert flower_sm.jpg -virtual-pixel Black -distort DePolar 0  flower_depolar.jpg
+//
+// bigger radius to edge
+// convert flower_sm.jpg  -virtual-pixel Black -distort DePolar -1  flower_depolar-1.jpg
+//
+// convert back (Polar to Cartesin)
+// convert flower_depolar-1.jpg -virtual-pixel HorizontalTile -background black -distort  Polar  -1  flower_restored.jpg
+////////////////////////////////////////////////////////////
